@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//思路： 把数组的值作为对象的键值
+		// var arr = [0, 2, 3, 3, 4, 2]
+		// var obj = {}
+		// var arr2 = []
+
+		// for(var i=0; i<arr.length; i++){
+		// 	if(!obj[arr[i]]){
+		// 		obj[arr[i]] = 1
+		// 		arr2.push(arr[i])
+		// 	}
+		// }
+		// console.log(obj)
+		// console.log(arr2)
+
+		var arrli = [1, 2, '1', '2', null, false, 0]
+
+		dd(arrli)
+
+		function dd(arr){
+			var arr2 = []
+			for(var i=0; i<arr.length; i++){
+				if(arr2.indexOf(arr[i])<0){
+					arr2.push(arr[i])
+				}
+			}
+			return arr2
+			// console.log(arr2)
+		}
+
+		console.log(dd(arrli))
+		
+
+		
+
+		
+
+	</script>
+</body>
+</html>

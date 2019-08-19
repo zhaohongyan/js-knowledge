@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <title>Handlebars-demo</title> 
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/handlebars-v4.0.5.js"></script>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script id="box-template" type="text/x-handlebars-template">
+		<div>Name: {{name}}</div>
+	</script>
+
+    <script type="text/javascript">
+	    
+    	var data = {
+    		name: 'Emma Zhao'
+    	};
+    	var t = $("#box-template").html();
+	    var f = Handlebars.compile(t);
+	    var h = f(data);
+	    $("#box").html(h);
+	    
+	    
+    </script>
+</body>
+
+</html>

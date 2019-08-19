@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    // 自己写的
+    function handleCount() {
+      console.log('start');
+      var count = 5;
+      var timer = setInterval(() => {
+        console.log('--');
+        console.log('count', count);
+        if (count > 0) {
+          document.getElementById('btn').innerHTML = count;
+          document.getElementById('btn').disabled = true;
+          count--;
+        } else {
+          clearInterval(timer)
+          document.getElementById('btn').innerHTML = '重新获取验证码';
+          document.getElementById('btn').disabled = false;
+        }
+      }, 1000);
+    }
+  </script>
+</head>
+
+<body>
+  <button id="btn" onclick="handleCount()">点击获取验证码</button>
+</body>
+
+</html>

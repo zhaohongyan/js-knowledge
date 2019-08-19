@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    var addressList = [{
+            area: "长安区",
+            city: "石家庄市",
+            createTime: "2017-11-29 09:55:36",
+            detail: "大法师法法",
+            id: 84,
+            mbId: 214,
+            name: "赵红艳",
+            phone: "15994138137",
+            postcode: "",
+            province: "河北省",
+            remark: "",
+            state: 0,
+            tag: "",
+            updateTime: "2017-11-29 09:55:36"
+        },
+        {
+            area: "闸北区",
+            city: "上海市",
+            createTime: "2017-11-29 19:07:14",
+            detail: "广中路788",
+            id: 97,
+            mbId: 214,
+            name: "赵红艳",
+            phone: "15994138137",
+            postcode: "",
+            province: "上海市",
+            remark: "",
+            state: 1,
+            tag: "",
+            updateTime: "2017-11-29 19:07:13"
+        },
+        {
+            area: "河东区",
+            city: "天津市",
+            createTime: "2017-11-29 10:07:30",
+            detail: "人民路",
+            id: 85,
+            mbId: 214,
+            name: "赵红艳",
+            phone: "15900000000",
+            postcode: "",
+            province: "天津市",
+            remark: "",
+            state: 1,
+            tag: "",
+            updateTime: "2017-11-29 10:07:30"
+        }
+    ]
+
+
+    var current = {
+        area: "闸北区",
+        city: "上海市",
+        createTime: "2017-11-29 19:07:14",
+        detail: "广中路788",
+        id: 97,
+        mbId: 214,
+        name: "赵红艳",
+        phone: "15994138137",
+        postcode: "",
+        province: "上海市",
+        remark: "",
+        state: 1,
+        tag: "",
+        updateTime: "2017-11-29 19:07:13"
+    };
+
+    for (let j = 0; j < addressList.length; j++) {
+        if (
+            addressList[j].name === current.name &&
+            addressList[j].phone === current.phone &&
+            addressList[j].province === current.province &&
+            addressList[j].city === current.city &&
+            addressList[j].area === current.area &&
+            addressList[j].detail === current.detail
+        ) {
+            console.log("已存在了")
+        }
+
+        break;
+
+    }
+
+    console.log("after ====== ")
+    </script>
+</body>
+
+</html>

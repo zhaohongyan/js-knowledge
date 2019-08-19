@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>bubble</title>
+    <style>
+        button {
+            background: red;
+            color: white;
+        }
+
+        #third {
+            width: 50px;
+            height: 50px;
+            border: thin solid red;
+        }
+
+        #second {
+            width: 100px;
+            height: 100px;
+            border: thin solid red;
+        }
+
+        #first {
+            width: 200px;
+            height: 200px;
+            border: thin solid red;
+        }
+    </style>
+    <style>
+        .abc {
+            width: 100%;
+            height: 100px;
+            background-color: wheat
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            z-index: 300;
+            background: rgba(0, 0, 0, 0.4);
+            filter: Alpha(opcity=60);
+            overflow: auto;
+        }
+
+
+
+        .popup_hide {
+            background-color: white;
+            width: 100%;
+            height: 100px;
+        }
+    </style>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <!-- <div id="first">
+        <div id="second" >
+            <div id="third" >
+                <button id="button">事件冒泡</button>
+            </div>
+        </div>
+    </div> -->
+    <div class="abc">
+        点我出现遮罩层哦
+    </div>
+
+    <div class="popup">
+        <div class="popup_hide">
+            pop
+        </div>
+    </div>
+
+    <script>
+        $('.abc').on("click", function () {
+            $('.popup').show();
+        });
+        $(".popup").on("click", function () {
+            $(this).hide();
+        });
+        $(".popup .popup_hide").on("click", function (e) {
+            e.stopPropagation();
+        })
+    </script>
+    <script>
+
+    // var btn =  document.getElementById("box")
+    // btn.addEventListener('click', function(){}, true)
+    // true表示捕获阶段调用，false表示冒泡阶段调用
+
+
+
+    //事件捕获
+    // document.getElementById("button").addEventListener("click", function() {
+    //     alert("button");
+    // }, true);
+
+    // document.getElementById("third").addEventListener("click", function() {
+    //     alert("third");
+    // }, true);
+
+    // document.getElementById("second").addEventListener("click", function() {
+    //     alert("second");
+    //     event.stopImmediatePropagation();
+    // }, true);
+
+    // document.getElementById("first").addEventListener("click", function() {
+    //     alert("first");
+    // }, true);
+
+        //事件冒泡
+    // document.getElementById("button").addEventListener("click",function(){
+    //     alert("button");
+    //     event.stopPropagation();    
+    // },false);
+
+    // document.getElementById("third").addEventListener("click",function(){
+    //     alert("third");
+    // },false);
+
+    // document.getElementById("second").addEventListener("click",function(){
+    //     alert("second");
+    // },false);        
+
+    // document.getElementById("first").addEventListener("click",function(){
+    //     alert("first");
+    // },false);
+    </script>
+</body>
+
+</html>

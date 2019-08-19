@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      html {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .box {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+      }
+      .box1 {
+        width: 100%;
+        background: green;
+        flex: 1;
+      }
+      .box3 {
+        height: 500px;
+      }
+      .box2 {
+        width: 100%;
+        height: 40px;
+        background: red;
+        flex: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 如何用flex实现
+    当内容超过一屏时底部内容跟随页面滚动
+    当内容没有超过时，置于底部 -->
+    <div class="box">
+      <div class="box1">
+        <div class="box3">111</div>
+        <div class="box3">111</div>
+        <div class="box3">111</div>
+        <div class="box3">111</div>
+      </div>
+      <div class="box2">222</div>
+    </div>
+  </body>
+</html>

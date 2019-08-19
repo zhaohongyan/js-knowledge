@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <script>
+    function dedupe(array) {
+      return Array.from(new Set(array))
+    }
+
+    var arr = [1, 2, 2, 2, 3];
+    var new_arr1 = [...new Set(arr)];
+    var new_arr2 = Array.from(new Set(arr));
+
+    console.log(new_arr1);
+    console.log(new_arr2);
+    console.log(arr);
+  </script>
+
+</body>
+
+</html>

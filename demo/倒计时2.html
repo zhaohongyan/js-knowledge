@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      #num {
+        display: block;
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        background-color: red;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <span id="num" onclick="start()">点击获取</span>
+    <script>
+      function start() {
+        var btn = document.getElementById("#num");
+        // btn.attr("disabled", true);
+
+        var timer = null;
+        var t = 80;
+        var m = 0,
+          s = 0;
+        m = Math.floor((t / 60) % 60);
+        s = Math.floor(t % 60);
+        ele.innerHTML = value;
+
+        function countDown() {}
+
+        var timer = setInterval(function() {
+          if (value > 0) {
+            value--;
+            ele.innerHTML = value;
+          } else {
+            clearInterval(timer);
+            ele.innerHTML = "重新获取";
+          }
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>

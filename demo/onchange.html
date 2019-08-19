@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+		
+	<span title="456">123</span>
+	<label for="">选项a<input type="radio" name="ss" value="1" checked=''></label><br>
+	<label for="">选项b<input type="radio" name="ss" value="2" checked=''></label><br>
+	<label for="">选项c<input type="radio" name="ss" value="3" checked=''></label><br>
+	<label for="">选项a<input type="radio" name="ss" value="0" checked=''></label><br>
+<br>
+<script>
+  	var arr = ['a', 'b', 'c']
+	console.log(arr['1'])
+	<#if testStatus.testStatus=="IS_ACTIVE">
+		<span class="fl mg-r-32"> ${testStatus.grade}${testStatus.describeInfo}</span>
+		<span class="icon_info_auth_success fr"></span>
+	<#elseif testStatus.testStatus=="NEVER">
+		<span class="fl mg-r-32"> </span>
+		<span class="fr c-red"><a  href="${rc.contextPath}/logined/testOnline/toTestPre" class="link-color fl" title="我要测评">我要测评</a></span>
+	<#elseif testStatus.testStatus=="NOT_ACTIVE">
+		<span class="fl mg-r-32"> ${testStatus.grade}${testStatus.describeInfo}</span>
+		<span class="fr c-red"><a  href="${rc.contextPath}/logined/testOnline/toTestPre" class="link-color fl" title="重新评测">重新评测</a></span>
+</#if>
+</script>
+	
+</body>
+</html>

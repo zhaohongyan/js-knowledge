@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>nav_buttom_di</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="nav_buttom_di">
+            <g id="Group-13">
+                <rect id="Rectangle-13" x="0" y="0" width="20" height="20"></rect>
+                <g id="Group-12" transform="translate(6.000000, 3.000000)" fill="#979797">
+                    <rect id="Rectangle-16" x="4" y="1" width="1" height="14" rx="0.5"></rect>
+                    <rect id="Rectangle-17" transform="translate(6.121320, 3.121320) rotate(45.000000) translate(-6.121320, -3.121320) " x="3.62132034" y="2.62132034" width="5" height="1" rx="0.5"></rect>
+                    <path d="M0.576986123,3.2443532 C0.576986123,2.92949207 0.835620929,2.66451458 1.14770732,2.65277115 L4.81679158,2.51470794 C5.13199219,2.50284732 5.4276952,2.74369515 5.47781011,3.05606853 L5.48668878,3.11141056 C5.53655863,3.42225637 5.30816441,3.6742467 5.00342255,3.6742467 L1.1505497,3.6742467 C0.833779283,3.6742467 0.576986123,3.42190447 0.576986123,3.10414019 L0.576986123,3.2443532 Z" id="Rectangle-17" transform="translate(3.035265, 3.094267) rotate(-45.000000) translate(-3.035265, -3.094267) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

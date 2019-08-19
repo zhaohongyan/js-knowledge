@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      a = 10;
+      (function a() {
+        console.log(a);
+        var a = 100;
+        console.log(a);
+      })();
+
+      console.log(["2a", "3", "4"].map(parseInt));
+      const arr = ["2a", "3", "4"];
+      const arr2 = [];
+      arr.forEach(item => {
+        item = Number(item);
+        arr2.push(parseInt(item, 10));
+      });
+      console.log(arr);
+      console.log(arr2);
+
+      var a = (function() {
+        return typeof arguments;
+      })();
+      console.log(a);
+
+      var b = (function(x) {
+        delete x;
+        return x;
+      })(1);
+      console.log(b);
+    </script>
+  </body>
+</html>

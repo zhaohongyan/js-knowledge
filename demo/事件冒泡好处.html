@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script text="text/javascript"> 
+
+    // window.onload = function(){
+    //     var aui = document.getElementById("bubble")
+    //     var ali = document.getElementsByTagName("li")
+
+    //     for(var i=0; i<ali.length; i++){
+    //         ali[i].onmouseover = function(){
+    //             this.style.backgroundColor = "blue"
+    //         }
+
+    //         ali[i].onmouseout = function(){
+    //             this.style.backgroundColor = ""
+    //         }
+    //     }
+    // }
+
+    window.onload = function(){
+        var aui = document.getElementById("bubble")
+
+        // ie: window.event.srcElement
+        // 标准模式： event.target
+        aui.onmouseover = function(ev){
+            var ev = ev||window.event
+            var target = ev.target || ev.srcElement
+            if(target.nodeName.toLowerCase() == "li"){
+                target.style.backgroundColor = "blue"
+            }
+        }
+        aui.onmouseout = function(ev){
+            var ev = ev || window.event
+            var target = ev.target || ev.srcElement
+            if(target.nodeName.toLowerCase() == "li"){
+                target.style.backgroundColor = ""
+            }
+        }
+    }
+            
+    </script>
+</head>
+<body>
+    <ul id="bubble">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    
+</body>
+</html>

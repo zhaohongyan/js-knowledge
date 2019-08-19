@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 考察知识点： 事件冒泡 -->
+  <table id="list2" border="1" onclick="list2()">
+    <tr>
+      <td class="click-enable">2.9</td>
+      <td>12222</td>
+    </tr>
+    <tr>
+      <td class="click-enable">8.9</td>
+      <td>fffff</td>
+    </tr>
+    <tr>
+      <td>ffff</td>
+      <td class="click-enable">9.0</td>
+    </tr>
+  </table>
+  <script>
+
+    function list2() {
+      var list2 = document.getElementById("list2")
+      list2.onclick = function (e) {
+        var target = e.target || window.event.srcElement
+        if (target.className.toLowerCase() == "click-enable") {
+          var numlist = target.innerHTML.split('.')
+          console.log('整数：' + numlist[0], '小数：' + numlist[1])
+        }
+      }
+    }
+
+  </script>
+</body>
+
+</html>

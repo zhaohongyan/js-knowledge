@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <title>左栏固定宽度，右栏自适应之负margin法</title>
+ <style type="text/css">
+ body{
+  margin: 0;
+ }
+ #container{
+  margin-left: 230px;
+  _zoom: 1;
+  /*兼容IE6下左栏消失问题*/
+ }
+ #nav{
+  float: left;
+  width: 230px;
+  height: 600px;
+  background: #ccc;
+  margin-left: -230px;
+  position: relative;
+  /*兼容IE6下左栏消失问题，IE6真不让人省心啊>_<*/
+ }
+ #main{
+  height: 400px;
+  background: #0099ff;
+ }
+ #footer{
+  clear: both;
+  text-align: center;
+  background: #009000;
+ }
+ .hezi{
+width:100px;
+height:100px;
+background:red;
+position:relative;
+animation:mymove infinite;
+animation-duration:2s;
+
+/* Safari and Chrome */
+-webkit-animation:mymove infinite;
+-webkit-animation-duration:2s;
+z-index: 999;
+-webkit-border-radius: 10px; 
+-moz-border-radius: 10px; 
+border-radius: 10px; 
+font-size: 50px;
+behavior: url(PIE.htc);
+}
+input{
+  behavior: url(ie-css3.htc);
+}
+ @keyframes mymove
+}
+{
+0% {top:0px;}
+50%{top:100px;}
+100% {top:0px;}
+
+}
+ </style>
+</head>
+<body>
+<input type="date">
+<div class="hezi">哈哈</div>
+ <div id="container">
+  <div id="nav">
+   左栏
+  </div>
+  <div id="main">
+   右栏
+  </div>
+ </div>
+ <div id="footer">
+  底栏
+ </div>
+ <script>
+    var array = ["This","is","Baidu","Campus"];
+    var s = array.join(" ");
+    console.log(s);
+
+    // var str = "get-element-by-id";
+    function changStr(str){
+        var arr = str.split("-");  //将字符串转换成数组
+        var len = arr.length;
+        for ( var i=0; i<len; i++ ){
+            // arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].substr(1,arr[i].length-1);
+            arr[i] = arr[i].charAt(0).toUpperCase()+arr[i].substr(1,len-1);
+        }
+        msg = arr.join("");
+        console.log( msg );
+        return msg;
+    }
+    var str1 = "get-element-by-id";
+    changStr(str1);
+    
+    // var arr3 = [3,65,288,4,1,5];
+    // var arr4 = arr3.reverse();
+    // var arr5 = arr3.sort(function(a,b){
+    //     return a-b;
+    // });
+    // console.log( arr5 );
+    
+
+    // for( var i=0; i<5; i++ ){
+
+    // }
+    // alert(i);
+     
+    var json1 = {"ziliao":[{"name":"wang","sex":"nan"},{"name":"yan","sex":"nv"}],"haha":[{"aa":"bb"}]};
+    for ( var key in json1 ){
+        console.log(key,json1[key][0].name);
+    }
+
+
+
+
+
+
+
+
+ </script>
+</body>
+</html>

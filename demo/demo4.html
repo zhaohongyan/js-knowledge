@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Eventloop</h1>
+    <script>
+      // 宏任务 task setTimeout setInterval
+      // 微任务 jobs promise.then()  process.nexttick()
+      console.log("script start");
+
+      async function async1() {
+        await async2();
+        console.log("async1 end");
+      }
+
+      async function async2() {
+        console.log("async2 end");
+      }
+
+      async1();
+
+      setTimeout(function() {
+        console.log("setTimeout");
+      }, 0);
+
+      new Promise(resolve => {
+        console.log("Promise");
+        resolve();
+      })
+        .then(function() {
+          console.log("promise1");
+        })
+        .then(function() {
+          console.log("promise2");
+        });
+
+      console.log("script end");
+      // demo4.html: 14 script start
+      // demo4.html: 22 async2 end
+      // demo4.html: 32 Promise
+      // demo4.html: 42 script end
+      // demo4.html: 18 async1 end
+      // demo4.html: 36 promise1
+      // demo4.html: 39 promise2
+      // demo4.html: 28 setTimeout
+
+      // const s = new Date().getSeconds();
+
+      // setTimeout(function() {
+      //   // 输出 "2"，表示回调函数并没有在 500 毫秒之后立即执行
+      //   console.log("Ran after " + (new Date().getSeconds() - s) + " seconds");
+      // }, 500);
+
+      // while (true) {
+      //   if (new Date().getSeconds() - s >= 2) {
+      //     console.log("Good, looped for 2 seconds");
+      //     break;
+      //   }
+      // }
+
+      // (function() {
+      //   console.log("这是开始");
+
+      //   setTimeout(function cb() {
+      //     console.log("这是来自第一个回调的消息");
+      //   });
+
+      //   console.log("这是一条消息");
+
+      //   setTimeout(function cb1() {
+      //     console.log("这是来自第二个回调的消息");
+      //   }, 0);
+
+      //   console.log("这是结束");
+      // })();
+
+      // (function() {
+      //   console.log(1);
+      //   setTimeout(() => {
+      //     console.log(2);
+      //   }, 0);
+      //   new Promise((resolve, reject) => {
+      //     console.log(3);
+      //     resolve(4);
+      //   }).then(val => {
+      //     console.log(val);
+      //   });
+      //   console.log(5);
+      // })();
+
+      setTimeout(function() {
+        console.log("setTimeout");
+      }, 1000);
+
+      new Promise(function(resolve) {
+        console.log("promise");
+        resolve();
+      }).then(function() {
+        console.log("then");
+      });
+
+      console.log("console");
+    </script>
+  </body>
+</html>
