@@ -46,7 +46,11 @@
 // console.log("emma instanceof Person: ", emma instanceof Person);
 // console.log("emma instaceof object: ", emma instanceof Object);
 
-// 3 原型模式
+// 3 原型模式 prototype
+// 思想：prototype属性 是一个指针，指向一个对象，这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。
+// prototype就是通过调用构造函数而创建的那个对象实例的原型对象。
+// 使用原型对象的好处就是可以让所有对象实例共享它包含的属性和方法。
+// 换句话说，不必在构造函数中定义对象实例的信息，可以将这些信息直接添加到原型对象中。
 // function Person() {}
 // Person.prototype.name = "Emma";
 // Person.prototype.age = 28;
