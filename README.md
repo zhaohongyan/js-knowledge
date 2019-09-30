@@ -17,4 +17,6 @@ console.log("同学，祝贺你喜提彩蛋~\n或许你们还在犹豫是否加�
 console.log("%c百度2019校园招聘简历提交：http://dwz.cn/XpoFdepe （你将有机会直接获得面试资格）","color:red");
 
 
-{...rest} 扩展符是浅拷贝
+### {...rest} 扩展符是**浅拷贝**
+### mobx.toJS(message) **深拷贝**
+### JSON.stringify(message) **读取整个结构**
