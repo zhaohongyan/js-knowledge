@@ -20,3 +20,5 @@ console.log("%c百度2019校园招聘简历提交：http://dwz.cn/XpoFdepe （�
 ### {...rest} 扩展符是**浅拷贝**
 ### mobx.toJS(message) **深拷贝**
 ### JSON.stringify(message) **读取整个结构**
+
+just add something
