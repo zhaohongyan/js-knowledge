@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #outer {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+    }
+    #inner {
+      width: 50px;
+      height: 50px;
+      margin-left: 25px;
+      margin-top: 25px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="outer">
+    <div id="inner"></div>
+  </div>
+  <script>
+
+    var outer = document.getElementById('outer');
+    var inner = document.getElementById('inner');
+
+    new MutationObserver(function () {
+        console.log('mutate');
+      }).observe(outer, {
+        attributes: true,
+      });
+
+    function onClick() {
+      console.log('click');
+
+      setTimeout(() => {
+        console.log('timeout');
+      }, 0);
+
+      Promise.resolve().then(() => {
+        console.log('promise')
+      })
+
+      outer.setAttribute('data-random', Math.random());
+    }
+
+    inner.addEventListener('click', onClick);
+    outer.addEventListener('click', onClick);
+
+    // 手动触发和js触发，log竟然不一样
+    inner.click();
+
+  </script>
+</body>
+</html>

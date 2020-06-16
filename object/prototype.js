@@ -6,6 +6,10 @@
 // hasOwnProperty 检查属性是否存在于对象实例中
 // hasPrototypeProperty() 自己实现，不是Object原生方法
 
+// 原型链是通过将一个类型的实例赋值给另一个构造函数的原型实现的
+// 原型链的问题：对象实例共享所有继承的属性和方法，因此不适宜单独使用
+// 解决方法：借用构造函数，即在子类型构造函数内部调用超类型的构造函数
+
 function Person() {}
 Person.prototype.name = "Emma";
 Person.prototype.age = 28;
