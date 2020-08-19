@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red {
+      color: red;
+    }
+    div {
+      border: 1px solid #eee;
+    }
+  </style>
+</head>
+
+<body>
+  <p>文字</p>
+  <p>文字</p>
+  <p>文字</p>
+
+  <div id="div1">
+    <p id="p1">p1</p>
+    <p id="p2">p2</p>
+  </div>
+
+  <div id="div2">div2</div>
+
+  <script>
+    const list = document.querySelectorAll('p');
+    const p1 = list[0];
+    const p2 = list[1];
+
+    p1.style.width = '100px';
+    console.log(p1.style.width);
+    p1.className = 'red'
+
+    p2.setAttribute('style', 'font-size: 30px');
+    p2.getAttribute('style');
+    p2.setAttribute('data-name', 'imooc');
+    p2.getAttribute('data-name');
+
+    const div1 = document.getElementById('div1')
+    const div2 = document.getElementById('div2')
+
+    // 新增
+    const newP = document.createElement('p');
+    newP.innerHTML = 'new p';
+    div1.appendChild(newP);
+
+    // 移动
+    const div1p = document.getElementById('p1');
+    div2.appendChild(div1p)
+
+    // 删除
+    const div1p2 = document.getElementById('p2');
+    div1.removeChild(div1p2)
+
+    // 父元素
+    console.log(div1p.parentNode);
+
+    // 子元素
+    let childNodes = Array.prototype.slice.call(div1.childNodes);
+    childNodes = childNodes.filter(ele => ele.nodeType === 1);
+    console.log('childnodes', childNodes);
+  </script>
+</body>
+
+</html>
