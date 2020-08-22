@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>webapi</title>
+  <script src="./ajax.js" ></script>
+</head>
+<body>
+  <button id="bt1">一个按钮</button>
+  <div id="div1">
+    <a href="#">a1</a><br/>
+    <a href="#">a2</a><br/>
+    <a href="#">a3</a><br/>
+    <a href="#">a4</a><br/>
+    <button>加载更多</button>
+  </div>
+
+  <script>
+    // 编写一个通用的事件监听函数
+    const bindEvent = function (elem, type, selector, fn) {
+      if (fn == null) {
+        fn = selector;
+        selector = null;
+      }
+      
+      elem.addEventListener(type, event => {
+        const target = event.target;
+        if (selector) {
+          // 代理绑定
+          // matches 如果元素被指定的选择器字符串选择，Element.matches()  方法返回true; 否则返回false。
+          if(target.matches(selector)) {
+            fn.call(target, event)
+          }
+        } else {
+          // 普通绑定
+          fn.call(target, event)
+        }
+      })
+    }
+
+
+    const bt1 = document.getElementById('bt1')
+    // bt1.addEventListener('click', function (event) {
+    //   console.log(event.target)
+    //   alert('button clicked')
+    // })
+
+    bindEvent(bt1, 'click', function(e) {
+      alert('button clicked')
+    })
+
+    const div1 = document.getElementById('div1')
+    // div1.addEventListener('click', function(event) {
+    //   event.preventDefault()
+    //   console.log(event.target)
+    //   const target = event.target;
+    //   if (target.nodeName === 'A') {
+    //     alert(event.target.innerHTML)
+    //   }
+    // })
+
+    bindEvent(div1, 'click', 'a', function (e) {
+      alert(e.target.innerHTML)
+    })
+
+
+  </script>
+</body>
+</html>

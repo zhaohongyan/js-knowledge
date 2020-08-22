@@ -23,4 +23,7 @@ console.log("%c百度2019校园招聘简历提交：http://dwz.cn/XpoFdepe （�
 ### mobx.toJS(message) **深拷贝**
 ### JSON.stringify(message) **读取整个结构**
 
-just add something
+### event.target event.currentTarget
+event.target指向引起触发事件的元素;
+event.currentTarget则是事件绑定的元素;
+只有被点击的那个目标元素的event.target才会等于event.currentTarget。

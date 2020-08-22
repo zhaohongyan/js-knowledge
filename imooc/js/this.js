@@ -34,3 +34,4 @@ class People {
 
 const zhangsan = new People("张三");
 zhangsan.sayHi(); // zhangsan 对象
+
