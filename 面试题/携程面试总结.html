@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //注意要点： 箭头函数
+    var array = [1, 2, 3];
+
+    var obj = {
+      array: [4, 5, 6],
+      a: function(){
+        return this.array.reduce((result, item) => result + item )
+      }
+    }
+    console.log(obj.a())  // 15
+
+
+    function bb(){
+      var m = '{"a":"1"}'
+      var n = JSON.parse(m) 
+      console.log(n)
+    }
+    bb()
+  </script>
+</body>
+</html>

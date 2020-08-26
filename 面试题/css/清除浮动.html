@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .father {
+      width: 200px;
+      /* overflow: hidden; */
+      border: 1px solid #aaa;
+    }
+
+    /* .father::afetr {
+      display: block;
+      content: '';
+      clear: both;
+      visibility: hidden;
+      height: 0
+    } */
+
+    .father>div {
+      float: left;
+      width: 50px;
+      height: 50px;
+      border: 1px solid #aaa;
+      margin-right: 10px;
+    }
+ 
+    .clear {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>
+    清除浮动的方法：<br />
+    1、父元素设定高（已知父元素高度）<br />
+    2、添加空标签，clear:both; <br />
+    3、父元素设置：overflow: hidden; <br />
+    4、父元素 <br />
+    IE8以上 .clearfloat:after{
+      content:"";
+      height:0
+      display:block;
+      clear:both;
+      visibility:hidden;
+    }
+    IE6，7 .clearfloat{zoom:1}
+  </h3>
+  <div class="father">
+    <div></div>
+    <div></div>
+    <div></div>
+    <span class="clear" ></span>
+  </div>
+</body>
+
+</html>

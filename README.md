@@ -27,3 +27,10 @@ console.log("%c百度2019校园招聘简历提交：http://dwz.cn/XpoFdepe （�
 event.target指向引起触发事件的元素;
 event.currentTarget则是事件绑定的元素;
 只有被点击的那个目标元素的event.target才会等于event.currentTarget。
+
+
+- AMD: 提前加载，不论是否调用模块，先解析所有模块，require速度快，有可能浪费资源
+- CMD: 提前加载，在真正需要时才解析该模块
+- common.js 同步，循序执行
+- sea.js 按需加载，性能比AMD差
+

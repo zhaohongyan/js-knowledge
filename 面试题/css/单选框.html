@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css">
+    p {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    label {
+      display: block;
+      width: 100%;
+      line-height: 30px;
+    }
+
+    label span {
+      display: inline-block;
+      width: 90%;
+    }
+
+    label i {
+      display: inline-block;
+      width: 10%;
+      height: 30px;
+      background: url(img/normal.svg) no-repeat right center;
+    }
+
+    label.checked i {
+      background: url(img/selected.svg) no-repeat right center;
+    }
+  </style>
+  <script src="js/jquery-1.10.1.js"></script>
+</head>
+
+<body>
+  <div>
+    <p>
+      <label name="a" class="checked" for="a"><span>选项a</span><i></i></label>
+      <input type="radio" id="a" name="sport" value="" checked="checked">
+    </p>
+    <p>
+      <label name="b" for="b"><span>选项b</span><i></i></label>
+      <input type="radio" id="b" name="sport" value="">
+    </p>
+  </div>
+  <script type="text/javascript">
+    $(function () {
+      $('label').click(function () {
+        var radioId = $(this).attr('name');
+        $('label').removeAttr('class') && $(this).attr('class', 'checked');
+        $('input[type="radio"]').removeAttr('checked') && $('#' + radioId).attr('checked', 'checked');
+      });
+    });
+  </script>
+</body>
+
+</html>
