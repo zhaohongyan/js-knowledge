@@ -62,13 +62,13 @@ typeof能够判断哪些类型
   - 判断是否是引用类型（不可再细分 ） **object** (注意 typeof null === 'object')
   - 识别函数  **function**
 
-类型转换
-  - 何时使用==， 何时使用===？
-    除了 == null 之外，其他一律用 ===
-    undefined == null  // true
-    undefined === null // false
 
-列举 强制类型转换和隐式类型转换
+何时使用==， 何时使用===？
+  - 除了 == null 之外，其他一律用 ===
+  - undefined == null  // true
+  - undefined === null // false
+
+列举强制类型转换和隐式类型转换
   - 强制： parseInt、parseFloat、toString等
   - 隐式： if、逻辑运算、 ==、 + 拼接字符串
 
@@ -92,12 +92,11 @@ falsely 变量  !!a === false
   - 返回值是什么？
   - 是否会对原数组造成影响？ 
 
-  扩展： 数组有哪些API，是否是纯函数？
-  - 纯函数：concat map filter slice-切片
-  - 非纯函数：pop push shift unshift forEach some every reduce splice-剪接
-  - slice-切片 splice-剪接
+  扩展： 数组有哪些API，是否是纯函数？[code](./imooc/js/array-splice.js)
+  - 纯函数：concat map filter **slice-切片**
+  - 非纯函数：pop push shift unshift forEach some every reduce **splice-剪接**
 
-  纯函数
+纯函数
   1. 不改变原数组（没有副作用）
   2. 返回新数组
 
@@ -139,7 +138,7 @@ a = 10;
 ------
 手写倒计时
 
-for...of for...in
+for...of for...in [code](./imooc/js/for-of.js)
 
 手写深度比较， lodash.isEqual [code](./imooc/js/isEqual.js)
 
@@ -170,12 +169,12 @@ for...of for...in
 
 将url参数解析成对象 [code](./imooc/js/query.js)
 
-手写 flatern 数组，考虑多级  （flatern拍平）[code](./imooc/js/flat.js)
+手写 flatten 数组，考虑多级  （flatten拍平）[code](./imooc/js/flat.js)
 
 函数声明和函数表达式的区别？
-  - 函数声明： `function fn() {...}`
-  - 函数表达式： `const fn = function () {...}`
-  - 函数声明会在代码执行前预加载，而函数表达式不会（类似于变量提升）
+- 函数声明： `function fn() {...}`
+- 函数表达式： `const fn = function () {...}`
+- 函数声明会在代码执行前预加载，而函数表达式不会（类似于变量提升）
 
 new Object() 和 Object.create() 的区别
 - {} 等同于 new Object(), 原型是 Object.prototype
@@ -185,4 +184,36 @@ new Object() 和 Object.create() 的区别
     
 关于 this 场景题
 
+性能优化
+```javascript
+// 对DOM查询进行缓存
+const length = document.querySelectorAll('p').length;
+for (let i = 0; i < length ; i++>) {
+  ...
+}
+
+// 频繁DOM操作，合并到一起插入DOM结构
+const frag = document.createDocumentFragment();
+for (let i = 0; i < 5; i++) {
+  const p = document.createElement('p');
+  p.innerHTML = '插入的节点' + i + '<br />'
+  frag.appendChild(p);
+}
+document.body.appendChild(frag)
+```
+
+作用域 变量
+```javascript
+// 考察知识点 作用域和变量
+let a = 100
+function test() {
+  alert(a)
+  a = 10
+  alert(a)
+}
+test()
+alert(a)
+```
+
+防抖节流
 
