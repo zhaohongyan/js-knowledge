@@ -14,15 +14,15 @@
 // result();
 
 // 作为参数
-// function print(fn) {
-//   const a = 100;
-//   fn();
-// }
-// const a = 200;
-// function fn() {
-//   console.log(a); // a是定义在全局作用域内的
-// }
-// print(fn);
+function print(fn) {
+  const a = 100;
+  fn();
+}
+const a = 200;
+function fn() {
+  console.log(a); // a是定义在全局作用域内的
+}
+print(fn);
 
 // 应用场景
 // function createFunctions() {

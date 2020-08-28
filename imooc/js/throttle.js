@@ -17,14 +17,31 @@ const div1 = document.getElementById('div1')
 //   }, 100);
 // })
 
+// function throttle(fn, delay = 100) {
+//   let timer = null;
+//   return function () {
+//     if (timer) {
+//       return 
+//     }
+//     timer = setTimeout(() => {  // 注意这里是箭头函数
+//       fn.apply(this, arguments)
+//       timer = null;
+//     }, delay);
+//   }
+// }
+
+
+// 不用箭头函数的写法
 function throttle(fn, delay = 100) {
   let timer = null;
   return function () {
     if (timer) {
-      return 
+      return
     }
-    timer = setTimeout(() => {  // 注意这里是箭头函数
-      fn.apply(this, arguments)
+    const that = this;
+    const params = Array.prototype.slice.apply(arguments)
+    timer = setTimeout(function () {
+      fn.apply(that, params)
       timer = null;
     }, delay);
   }

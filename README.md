@@ -28,9 +28,161 @@ event.target指向引起触发事件的元素;
 event.currentTarget则是事件绑定的元素;
 只有被点击的那个目标元素的event.target才会等于event.currentTarget。
 
-
+AMD CMD
 - AMD: 提前加载，不论是否调用模块，先解析所有模块，require速度快，有可能浪费资源
 - CMD: 提前加载，在真正需要时才解析该模块
 - common.js 同步，循序执行
 - sea.js 按需加载，性能比AMD差
+
+RAF requestAnimationFrame [code](./imooc/js/requestAnimationFrame.js)
+- 要想动画流畅，更新频率要60帧/s，即16.67s更新一次视图；
+- setTimeout 要手动控制频率，而RAF 浏览器会自动控制；
+- 后台标签或隐藏iframe 中，RAF会暂停，而 setTimeout 继续执行； **亲自尝试，setTimeout也会暂停**
+
+------
+CSS经典面试题
+1. 右边宽度自适应
+2. 左边根据右边自适应高度
+3. 移动端footer自适应布局
+
+------
+JS面试题
+
+值类型和引用类型的区别？
+  - 值类型 - 栈
+  - 引用类型 - 堆
+
+var let const区别
+  - var是ES5语法，let const是ES6语法；var有变量提升
+  - var let声明的是变量，可修改；const声明的是常量，不可修改
+  - let const 有块级作用域， var没有
+
+typeof能够判断哪些类型
+  - 识别所有值类型  **string number boolean symbol undefined**
+  - 判断是否是引用类型（不可再细分 ） **object** (注意 typeof null === 'object')
+  - 识别函数  **function**
+
+类型转换
+  - 何时使用==， 何时使用===？
+    除了 == null 之外，其他一律用 ===
+    undefined == null  // true
+    undefined === null // false
+
+列举 强制类型转换和隐式类型转换
+  - 强制： parseInt、parseFloat、toString等
+  - 隐式： if、逻辑运算、 ==、 + 拼接字符串
+
+truly 变量    !!a === true
+falsely 变量  !!a === false
+
+以下是falsely变量，其他都是truly变量
+  * !!0 === false
+  * !!NaN === false
+  * !!'' === false
+  * !!undefined === false
+  * !!null === false
+  * !!flase === false
+
+数组去重
+
+数组API
+
+数组的pop push shift unshift 分别做什么
+  - 功能是什么？
+  - 返回值是什么？
+  - 是否会对原数组造成影响？ 
+
+  扩展： 数组有哪些API，是否是纯函数？
+  - 纯函数：concat map filter slice-切片
+  - 非纯函数：pop push shift unshift forEach some every reduce splice-剪接
+  - slice-切片 splice-剪接
+
+  纯函数
+  1. 不改变原数组（没有副作用）
+  2. 返回新数组
+
+
+字符串中出现次数最多的字符
+
+手写trim 保证浏览器兼容性
+```javascript
+if (!String.prototypt.trim) {
+  String.prototypt.trim = function () {
+    return this.replace(/^\s+/, '').replace(/\s+$/, '')
+  }
+}
+// 考察知识点: 原型 this 正则
+```
+------
+map可以传函数进去吗？为什么会出错？怎么解决？
+
+```javascript
+["2", "3", "4"].map(parseInt)
+// 等同于
+["2", "3", "4"].map((item, index) => parseInt(item, index))
+
+// parseInt(string, radix);
+// 从 2 到 36，表示字符串的基数
+// 返回值：一个整数或NaN
+// radix 小于 2 或大于 36 ，或 第一个非空格字符不能转换为数字 返回NaN
+```
+自执行函数，形成闭包，块级作用域
+
+```javascript
+a = 10;
+(function a() { // 闭包，块级作用域
+  console.log(a);
+  var a = 100;
+  console.log(a);
+})();
+```
+------
+手写倒计时
+
+for...of for...in
+
+手写深度比较， lodash.isEqual [code](./imooc/js/isEqual.js)
+
+正则表达式
+
+字符串字母开头，后面字母数字下划线，长度6-30
+
+`const reg = /^[a-zA-Z]\w{5,29}$/`
+
+如何通过js实现继承
+  - class继承 （推荐）
+  - prototype继承
+
+如何捕获js异常
+  - try...catch
+  - window.onerror = function(message, source, lineNum, colNum, error) {...}
+
+什么是json?
+- json是一种数据格式，本质是一段字符串
+- json格式和js对象格式结构一致，对js语言更友好
+- window.JSON是一个全局对象： JSON.stringify  JSON.parse
+
+解释jsonp原理，为什么它不是真正的Ajax?
+
+获取当前页面url参数 [code](./imooc/js/query.js)
+- 传统方式 location.search  ?a=10&b=20&c=30
+- 新API   new URLSearchParams(location.search) （有兼容问题）
+
+将url参数解析成对象 [code](./imooc/js/query.js)
+
+手写 flatern 数组，考虑多级  （flatern拍平）[code](./imooc/js/flat.js)
+
+函数声明和函数表达式的区别？
+  - 函数声明： `function fn() {...}`
+  - 函数表达式： `const fn = function () {...}`
+  - 函数声明会在代码执行前预加载，而函数表达式不会（类似于变量提升）
+
+new Object() 和 Object.create() 的区别
+- {} 等同于 new Object(), 原型是 Object.prototype
+- Object.create(null) 没有原型
+- Object.create({...}) 可指定原型
+
+    
+关于 this 场景题
+
 
