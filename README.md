@@ -1,7 +1,4 @@
-# js-knowledge
-js零碎知识点总结
-
-------
+js零碎知识点总结 越努力越幸运
 
 Console对象
 
@@ -113,6 +110,9 @@ falsely 变量  !!a === false
   * !!flase === false
 
 数组去重
+- `let a = [...new Set(arr)]`
+- `Array.from(new Set(arr))`
+- 传统方法
 
 数组API
 
@@ -171,10 +171,13 @@ for...of for...in [code](./imooc/js/for-of.js)
 
 手写深度比较， lodash.isEqual [code](./imooc/js/isEqual.js)
 
-正则表达式
+正则表达式 [30分种入门](https://deerchao.cn/tutorials/regex/regex.htm#greedyandlazy)
+- + 一次或多次
+- * 0次或多次
+- ? 0次或1次
+- | 两项之间的一个
 
 字符串字母开头，后面字母数字下划线，长度6-30
-
 `const reg = /^[a-zA-Z]\w{5,29}$/`
 
 如何通过js实现继承
@@ -190,7 +193,10 @@ for...of for...in [code](./imooc/js/for-of.js)
 - json格式和js对象格式结构一致，对js语言更友好
 - window.JSON是一个全局对象： JSON.stringify  JSON.parse
 
-解释jsonp原理，为什么它不是真正的Ajax?
+解释 JSONP (JSON with padding)原理，为什么它不是真正的Ajax? [code](./imooc/js/jsonp.js)
+- JSONP 由两部分组成：回调函数 和 数据
+- 回调函数 是当响应到来时 应该在页面中调用的函数。回调函数的名字一般是在请求中指定的。
+- 数据就是 传入回调函数中的 JSON 数据。
 
 获取当前页面url参数 [code](./imooc/js/query.js)
 - 传统方式 location.search  ?a=10&b=20&c=30
@@ -212,6 +218,8 @@ new Object() 和 Object.create() 的区别
 
     
 关于 this 场景题
+[code1](./imooc/js/this.js)
+[code2](./imooc/js/this2.js)
 
 性能优化
 ```javascript
@@ -263,5 +271,93 @@ alert(a)
 不常考知识点：
 
 - 自定义属性data-* 的值，只能是字符串，不是字符串也会转化成字符串
+
+------
+我没用过的知识点
+
+Set 构造函数
+
+- Set类似于数组，但是成员的值都是唯一的，没用重复的值
+- Set本身是一个构造函数，用来生成Set数据结构
+- 不会添加重复的值
+- 向 Set 加入值时，不会发生类型转换
+- 可接受数组作为参数
+
+实例的属性和方法
+- Set.prototype.constructor
+- Set.prototype.size
+- add(value)
+- delete(value)
+- has(value)
+- clear()
+
+遍历方法
+- keys()
+- values()
+- entries()
+- forEach()
+- map()
+- filter()
+
+很容易实现并集，交集，差集
+- 并集 `let union = new Set([...a, ...b])`
+- 交集 `let intersect = new Set([...a].filer(x => b.has(x)))`
+- 差集 `let intersect = new Set([...a].filer(x => !b.has(x)))`
+
+WeakSet 构造函数
+
+与Set类似，也是不重复的值的集合
+
+区别
+- WeakSet成员只能是对象，不能是其他类型的值
+- WeakSet的对象都是弱引用。即垃圾机制不考虑 对该对象的引用
+
+属性和方法
+- WeakSet.prototype.add(value)
+- WeakSet.prototype.delete(value)
+- WeakSet.prototype.has(value)
+
+- 没有size属性，没有方法遍历其成员
+- 用处： 存储DOM节点，而不用担心这些节点从文档移除时会引发内存泄漏
+
+Map
+
+- 类似于对象，也是键值对的集合，但是键的范围不限于字符串
+- 对同一个键赋值两次，后一次的值会覆盖前一次的值
+- 读取一个未知的键，返回undefined **注意：只有对同一个对象的引用，才视为同一个键**
+
+属性和方法
+- size
+- set(key, value)
+- get(key)
+- has(o)
+- delete(o)
+- clear()
+
+遍历方法
+- keys()
+- values()
+- entries()
+- forEach()
+
+WeakMap
+
+WeakMap与Map结构基本类似，唯一的区别是它只接受对象作为键名（null除外），不接受其他类型的值作为键名，而且键名所指向的对象不计入垃圾回收机制。
+
+专用场合就是，他的键所对应的对象可能会在将来消失，有助于防止内存泄漏。
+
+方法
+- get
+- set
+- has
+- delete
+
+与Map区别
+- 没有遍历操作，没有size
+- 无法清空，没有clear()
+
+
+
+
 
 
