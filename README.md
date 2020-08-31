@@ -3,7 +3,8 @@ js零碎知识点总结
 
 ------
 
-### Console对象
+Console对象
+
 在console.log()或console.debug()中输出时会有%d,%s等符号。
 1. %s for a String value 字符类型
 2. %d or %i for a Integer value 整型
@@ -17,22 +18,49 @@ console.log("同学，祝贺你喜提彩蛋~\n或许你们还在犹豫是否加�
 console.log("%c百度2019校园招聘简历提交：http://dwz.cn/XpoFdepe （你将有机会直接获得面试资格）","color:red");
 
 
-### {...rest} 扩展符是**浅拷贝**
-### Object.assign() **浅拷贝**
+{...rest} 扩展符是**浅拷贝**
 
-### mobx.toJS(message) **深拷贝**
-### JSON.stringify(message) **读取整个结构**
+Object.assign() **浅拷贝**
 
-### event.target event.currentTarget
-event.target指向引起触发事件的元素;
-event.currentTarget则是事件绑定的元素;
-只有被点击的那个目标元素的event.target才会等于event.currentTarget。
+mobx.toJS(message) **深拷贝**
+
+JSON.stringify(message) **读取整个结构**
+
+event.target event.currentTarget
+- event.target指向引起触发事件的元素;
+- event.currentTarget则是事件绑定的元素;
+- 只有被点击的那个目标元素的event.target才会等于event.currentTarget。
 
 AMD CMD
 - AMD: 提前加载，不论是否调用模块，先解析所有模块，require速度快，有可能浪费资源
 - CMD: 提前加载，在真正需要时才解析该模块
 - common.js 同步，循序执行
 - sea.js 按需加载，性能比AMD差
+
+防篡改对象
+
+一旦把对象定义为防篡改对象，就无法撤销了     
+- 一级：不可扩展对象。
+```javascript
+  var person = { name: 'Emma' };
+  Object.preventExtensions(person);
+  Object.isExtensible(person);
+```
+- 二级：密封的对象。密封的对象不可扩展，不能删除属性和方法，属性值是可以修改的
+```javascript
+  var person = { name: 'Emma' };
+  Object.seal(person);
+  Object.isSealed(person);
+```
+- 最严格级别：冻结的对象。既不可扩展，也是密封的。属性值不可以修改。
+```javascript
+  var person = { name: 'Emma' };
+  Object.freeze(person);
+  Object.isExtensible(person); // false
+  Object.isSealed(person); // true
+  Object.isFrozen(person); // true
+  
+```
 
 RAF requestAnimationFrame [code](./imooc/js/requestAnimationFrame.js)
 - 要想动画流畅，更新频率要60帧/s，即16.67s更新一次视图；
@@ -56,6 +84,7 @@ var let const区别
   - var是ES5语法，let const是ES6语法；var有变量提升
   - var let声明的是变量，可修改；const声明的是常量，不可修改
   - let const 有块级作用域， var没有
+  - let const不会在全局声明时（在最顶部的范围）创建window 对象的属性。(**重要**)
 
 typeof能够判断哪些类型
   - 识别所有值类型  **string number boolean symbol undefined**
@@ -216,4 +245,23 @@ alert(a)
 ```
 
 防抖节流
+
+------
+小题
+
+`/678/ == /678/`
+
+`/678/ === /678/`
+
+`const a = 40 % 7; typeof a`
+
+`0.1 === 0.5 - 0.4;`
+
+`0.2 === 0.5 - 0.3`
+
+------
+不常考知识点：
+
+- 自定义属性data-* 的值，只能是字符串，不是字符串也会转化成字符串
+
 
