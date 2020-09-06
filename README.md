@@ -1,5 +1,22 @@
 js零碎知识点总结 越努力越幸运
 
+setTimeout setInterval
+- 超时调用 setTimeout
+- 间歇调用 setInterval
+- 在使用 setTimeout 时，没有必要跟踪timeId,因为每次执行代码之后，如果不再设置另一次超时调用，调用就会自行停止。
+- 一般认为，使用 超时调用 来模拟 间歇调用 是一种最佳模式。
+- 在开发环境下，很少使用真正的间歇调用，原因是后一个间歇调用可能会在前一个间歇调用结束之前启动。
+
+```javascript
+  var timeId = setTimeout(() => { // 一秒后执行
+    alert(11)
+  }, 1000);
+  
+  var a = function () { // 不执行，除非a()
+    alert(22)
+  }
+
+```
 Console对象
 
 在console.log()或console.debug()中输出时会有%d,%s等符号。
@@ -358,6 +375,8 @@ WeakMap与Map结构基本类似，唯一的区别是它只接受对象作为键�
 
 
 
-
+看完《JS高级程序设计》之后的反思：
+- 项目优化点
+- 
 
 
