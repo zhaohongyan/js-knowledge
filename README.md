@@ -1,5 +1,7 @@
 js零碎知识点总结 越努力越幸运
 
+希望你写下的每一行代码都是经过大脑思考的
+
 setTimeout setInterval
 - 超时调用 setTimeout
 - 间歇调用 setInterval
@@ -31,18 +33,13 @@ Console对象
 console.log("同学，祝贺你喜提彩蛋~\n或许你们还在犹豫是否加入，我会坦诚的告诉你我们超酷；\n在这里大家都用无人车代步，AI音箱不仅播放还可以交互；\n人工智能是发展的核心技术，做自己让未来不只领先几步；\n在这里做自己，欢迎来到百度！\n");
 console.log("%c百度2019校园招聘简历提交：http://dwz.cn/XpoFdepe （你将有机会直接获得面试资格）","color:red");
 
-
-{...rest} 扩展符是**浅拷贝**
-
-Object.assign() **浅拷贝**
-
-mobx.toJS(message) **深拷贝**
-
-JSON.stringify(message) **读取整个结构**
++ {...rest} 扩展符是**浅拷贝**
++ Object.assign() **浅拷贝**
++ mobx.toJS(message) **深拷贝**
 
 event.target event.currentTarget
-- event.target指向引起触发事件的元素;
-- event.currentTarget则是事件绑定的元素;
+- event.target指向引起触发事件的元素; li
+- event.currentTarget则是事件绑定的元素; ul
 - 只有被点击的那个目标元素的event.target才会等于event.currentTarget。
 
 AMD CMD
@@ -86,6 +83,7 @@ CSS经典面试题
 1. 右边宽度自适应
 2. 左边根据右边自适应高度
 3. 移动端footer自适应布局
+4. 圣杯布局和双飞翼布局
 
 ------
 JS面试题
@@ -270,6 +268,8 @@ alert(a)
 ```
 
 防抖节流
++ 防抖 debounce [code](./imooc/js/debounce.js)
++ 节流 throttle [code](./imooc/js/throttle.js)
 
 ------
 小题

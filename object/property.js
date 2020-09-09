@@ -34,6 +34,7 @@
 */
 
 // 在对象中添加存取描述符属性
+// Object.defineProperty(), Object.defineProperties()
 // var obj = {};
 // var aValue; //如果不初始化变量, 不给下面的a属性设置值,直接读取会报错aValue is not defined
 // var b;
