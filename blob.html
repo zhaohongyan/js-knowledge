@@ -23,7 +23,6 @@
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.responseType = 'blob';
     const that = this;
-    /* eslint-disable */
     xhr.onload = function () {
       if (this.status === 200) {
         // 接受二进制文件流
