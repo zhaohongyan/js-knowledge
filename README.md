@@ -276,23 +276,33 @@ alert(a)
 ------
 小题
 
-`/678/ == /678/`
+```javascript
 
-`/678/ === /678/`
+/678/ == /678/
 
-`const a = 40 % 7; typeof a`
+/678/ === /678/
 
-`0.1 === 0.5 - 0.4;`
+const a = 40 % 7; typeof a
 
-`0.2 === 0.5 - 0.3`
+0.1 === 0.5 - 0.4;
 
+0.2 === 0.5 - 0.3
+
+1 + null          // 1
+1 + undefined     // NaN
+
+Number(null)      // 0
+Number(undefined) // NaN
+
+typeof null === 'object';              // true
+Object.prototype.toString.call(null);  // [object Null]
+null instanceof Object;                // false
+
+
+
+
+```
 ------
-不常考知识点：
-
-- 自定义属性data-* 的值，只能是字符串，不是字符串也会转化成字符串
-
-------
-我没用过的知识点
 
 Set 构造函数
 
