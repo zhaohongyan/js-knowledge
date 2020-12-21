@@ -21,6 +21,7 @@ setTimeout setInterval
   }
 
 ```
+
 Console对象
 
 在console.log()或console.debug()中输出时会有%d,%s等符号。
