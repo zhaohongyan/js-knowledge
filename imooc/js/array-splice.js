@@ -4,6 +4,11 @@
  * @return (number[]) 剪切的值
  */
 
+// splice() ：该方法向或者从数组中添加或者删除项目，返回被删除的项目。
+// splice（index, howmany, item1,...itemX）
+
+// slice(start,end) 纯函数
+
 //  let arr = [1, 2, 3, 4, 5];
 
 //  let arr1 = arr.slice()

@@ -1,7 +1,7 @@
-// + then 正常返回 resolved， 里面有报错则返回rejected
-// + catch 正常返回 resolved， 里面有报错则返回rejected
-// + resolved 触发后续 then  回调
-// + rejected 触发后续 catch 回调
+// then 正常返回 resolved， 里面有报错则返回rejected
+// catch 正常返回 resolved， 里面有报错则返回rejected
+// resolved 触发后续 then  回调
+// rejected 触发后续 catch 回调
 
 // Promise.resolve().then(() => {
 //   console.log(1)

@@ -6,7 +6,7 @@
 // function create() {
 //   const a = 100;
 //   return function () {
-//     console.log(a); // a是定义在函数作用域内的
+//     console.log('a ', a); // a是定义在函数作用域内的
 //   };
 // }
 // const result = create();
@@ -14,29 +14,29 @@
 // result();
 
 // 作为参数
-function print(fn) {
-  const a = 100;
-  fn();
-}
-const a = 200;
-function fn() {
-  console.log(a); // a是定义在全局作用域内的
-}
-print(fn);
+// function print(fn) {
+//   const b = 100;
+//   fn();
+// }
+// const b = 200;
+// function fn() {
+//   console.log('b ', b); // b是定义在全局作用域内的
+// }
+// print(fn);
 
 // 应用场景
-// function createFunctions() {
-//   var result = new Array();
-//   for (var i = 0; i < 10; i++) {
-//     result[i] = function (num) {
-//       return function () {
-//         return num;
-//       }
-//     }(i)
-//   }
-//   return result;
-// }
-// const result = createFunctions()
-// console.log(result[0]());
-// console.log(result[1]());
-// console.log(result[2]());
+function createFunctions() {
+  var result = new Array();
+  for (var i = 0; i < 10; i++) {
+    result[i] = function (num) {
+      return function () {
+        return num;
+      }
+    }(i)
+  }
+  return result;
+}
+const result = createFunctions()
+console.log(result[0]());
+console.log(result[1]());
+console.log(result[2]());

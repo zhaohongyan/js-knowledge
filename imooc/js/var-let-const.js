@@ -11,17 +11,18 @@
 // let b = 1;
 
 // 考察知识点：函数声明和函数表达式
+// 函数声明是在预执行期执行的，就是说函数声明是在浏览器准备执行代码的时候执行的。
 // var res = sum(1, 2)
 // console.log(res)
 
-// 函数声明
+// // 函数声明
 // function sum(x, y) {
 //   return x + y
 // }
 
-// 函数表达式
+// // 函数表达式
 // var sum = function (x, y) {
-//   return x + y
+//   return x + 2 * y
 // }
 
 // 考察知识点：块级作用域

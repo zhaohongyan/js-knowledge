@@ -4,7 +4,7 @@ function fn1(a, b, c) {
   return "this is fn1";
 }
 // 使用原生bind
-const fn2 = fn1.bind({x: 100}, 10, 20, 30)
+const fn2 = fn1.bind({ x: 100 }, 10, 20, 30)
 const result = fn2();
 console.log(result);
 

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>圣杯布局</title>
   <style>
-    #header,#footer {
+    #header,
+    #footer {
       text-align: center;
       background-color: #f1f1f1;
     }
+
     /* #footer {
       clear: both;
     } */
@@ -18,17 +21,22 @@
       display: table;
       clear: both;
     }
+
     .column {
       float: left;
     }
+
     #container {
       padding-left: 200px;
       padding-right: 150px;
     }
+
     #center {
       width: 100%;
+      height: 50px;
       background: #ccc;
     }
+
     #left {
       width: 200px;
       background: yellow;
@@ -36,6 +44,7 @@
       right: 200px;
       margin-left: -100%;
     }
+
     #right {
       width: 150px;
       background: red;
@@ -43,6 +52,7 @@
     }
   </style>
 </head>
+
 <body>
   <div id="header">header</div>
   <div id="container" class="clearfix">
@@ -52,4 +62,5 @@
   </div>
   <div id="footer">footer</div>
 </body>
+
 </html>
