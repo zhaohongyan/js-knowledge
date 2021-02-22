@@ -47,10 +47,10 @@ Object.defineProperties(book, {
     value: 1
   },
   year: {
-    get: function() {
+    get: function () {
       return this._year;
     },
-    set: function(newValue) {
+    set: function (newValue) {
       if (newValue > 2004) {
         this._year = newValue;
         this.edition += newValue - 2004;
@@ -68,6 +68,15 @@ var person = 1;
 console.log('person des', Object.getOwnPropertyDescriptor(window, "person"));
 // { value: 1, writable: true, enumerable: true, configurable: false }
 
-var person = {};
+var person = {
+  name: 'aaa'
+};
 console.log(Object.getOwnPropertyDescriptors(person));
+for (const key in person) {
+  console.log('--', key)
+  if (Object.hasOwnProperty.call(person, key)) {
+    console.log('==', key)
+  }
+}
+console.log(Object.keys(person))
 

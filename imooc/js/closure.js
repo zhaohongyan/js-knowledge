@@ -25,18 +25,58 @@
 // print(fn);
 
 // 应用场景
-function createFunctions() {
-  var result = new Array();
-  for (var i = 0; i < 10; i++) {
-    result[i] = function (num) {
-      return function () {
-        return num;
-      }
-    }(i)
+// function createFunctions() {
+//   var result = new Array();
+//   for (var i = 0; i < 10; i++) {
+//     result[i] = function (num) {
+//       return function () {
+//         return num;
+//       }
+//     }(i)
+//   }
+//   return result;
+// }
+// const result = createFunctions()
+// console.log(result[0]());
+// console.log(result[1]());
+// console.log(result[2]());
+
+// var a = 100;
+// function foo() {
+//   var a = 1; // a 是一个被 foo 创建的局部变量
+//   function bar() { // bar 是一个内部函数，是一个闭包
+//     console.log(a); // 使用了父函数中声明的变量
+//   }
+//   return bar;
+// }
+// const myFoo = foo();
+// myFoo();
+
+// ---------------
+
+// var a = 'luckyStar';
+// var obj = {
+//   a: 'litterStar',
+//   foo() {
+//     console.log(this.a);
+//   }
+// }
+// obj.foo(); // ①
+
+// var bar = obj.foo;
+// bar(); // ②
+
+// setTimeout(obj.foo, 100); // ③
+
+
+var name = 'The window';
+
+var object = {
+  name: 'my Object',
+  getName: function () {
+    return function () {
+      return this.name;
+    }
   }
-  return result;
 }
-const result = createFunctions()
-console.log(result[0]());
-console.log(result[1]());
-console.log(result[2]());
+console.log(object.getName()()); 

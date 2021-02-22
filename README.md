@@ -46,7 +46,7 @@ console.log("%c 百度 2019 校园招聘简历提交：http://dwz.cn/XpoFdepe �
 event.target event.currentTarget
 
 - event.target 指向引起触发事件的元素; li
-- event.currentTarget 则是事件绑定的元素; ul
+- event.currentTarget   ; ul
 - 只有被点击的那个目标元素的 event.target 才会等于 event.currentTarget。
 
 AMD CMD
@@ -486,3 +486,21 @@ console.log(q);
 ```
 
 ### 跨域，你真的会吗？
+
+https://mp.weixin.qq.com/s/fDlyrRTv6zp-PQ1iRkTpBQ
+
+- jsonp
+  缺点： 只能实现 get 请求
+- iframe + document.domain
+  此方案仅限主域相同，子域不同的跨域应用场景。
+  实现原理：两个页面都通过 js 强制设置 document.domain 为基础主域，就实现了同域。
+- iframe + location.hash
+- iframe + window.name
+- iframe + postMessage
+- 跨域资源共享（CORS）
+- nginx
+- WebSocket 协议跨域
+
+- [深入理解js执行上下文](https://mp.weixin.qq.com/s/F60V4nxUKVllde_RTtm9pg)
+- [深入理解js作用域](https://mp.weixin.qq.com/s/fYZciVqatoJAKlm6tKHSyw)
+- [一文理解 this、call、apply、bind](https://mp.weixin.qq.com/s/3sm7wugUZ0GUavQsbQnEeg)
