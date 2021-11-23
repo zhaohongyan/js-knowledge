@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>CMD简单案例</title>
-	<script src="js/seajs-2.2.1.min.js"></script>
-	<script>
-	// seajs的路径默认是seajs文件的父文件夹目录
-	// paths和alias配合可以让模块引用非常方便
-	seajs.config({
-		paths: {
-			'path': 'cmd-module'
-		},
-        alias:{
-            'c':'path/cmd',
-            'cd': 'path/cmd-deps'
-        }
+  <meta charset="UTF-8">
+  <title>CMD简单案例</title>
+  <script src="js/seajs-2.2.1.min.js"></script>
+  <script>
+    // seajs的路径默认是seajs文件的父文件夹目录
+    // paths和alias配合可以让模块引用非常方便
+    seajs.config({
+      paths: {
+        'path': 'cmd-module'
+      },
+      alias: {
+        'c': 'path/cmd',
+        'cd': 'path/cmd-deps'
+      }
     });
-	// 调用模块
-	seajs.use(['c'], function(math){
-		console.log(math.add(1,4));
-	});
-	</script>
+    // 调用模块
+    seajs.use(['c'], function (math) {
+      console.log(math.add(1, 4));
+    });
+  </script>
 </head>
+
 <body>
-	<span>body</span>
+  <span>body</span>
 </body>
-</html> 
+
+</html>

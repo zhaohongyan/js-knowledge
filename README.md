@@ -46,7 +46,7 @@ console.log("%c 百度 2019 校园招聘简历提交：http://dwz.cn/XpoFdepe �
 event.target event.currentTarget
 
 - event.target 指向引起触发事件的元素; li
-- event.currentTarget   ; ul
+- event.currentTarget ; ul
 - 只有被点击的那个目标元素的 event.target 才会等于 event.currentTarget。
 
 AMD CMD
@@ -501,6 +501,10 @@ https://mp.weixin.qq.com/s/fDlyrRTv6zp-PQ1iRkTpBQ
 - nginx
 - WebSocket 协议跨域
 
-- [深入理解js执行上下文](https://mp.weixin.qq.com/s/F60V4nxUKVllde_RTtm9pg)
-- [深入理解js作用域](https://mp.weixin.qq.com/s/fYZciVqatoJAKlm6tKHSyw)
+- [深入理解 js 执行上下文](https://mp.weixin.qq.com/s/F60V4nxUKVllde_RTtm9pg)
+- [深入理解 js 作用域](https://mp.weixin.qq.com/s/fYZciVqatoJAKlm6tKHSyw)
 - [一文理解 this、call、apply、bind](https://mp.weixin.qq.com/s/3sm7wugUZ0GUavQsbQnEeg)
+
+算法
+
+数据结构
