@@ -1,10 +1,10 @@
-js 零碎知识点总结 越努力越幸运
+# js 零碎知识点总结 越努力越幸运
 
 希望你写下的每一行代码都是经过大脑思考的
 
 别人的底子深厚得你都看不到
 
-setTimeout setInterval
+### setTimeout setInterval
 
 - 超时调用 setTimeout
 - 间歇调用 setInterval
@@ -24,7 +24,7 @@ var a = function () {
 };
 ```
 
-Console 对象
+### Console 对象
 
 在 console.log()或 console.debug()中输出时会有%d,%s 等符号。
 
@@ -39,24 +39,25 @@ Console 对象
 console.log("同学，祝贺你喜提彩蛋~\n 或许你们还在犹豫是否加入，我会坦诚的告诉你我们超酷；\n 在这里大家都用无人车代步，AI 音箱不仅播放还可以交互；\n 人工智能是发展的核心技术，做自己让未来不只领先几步；\n 在这里做自己，欢迎来到百度！\n");
 console.log("%c 百度 2019 校园招聘简历提交：http://dwz.cn/XpoFdepe （你将有机会直接获得面试资格）","color:red");
 
+### 深拷贝&浅拷贝
 - {...rest} 扩展符是**浅拷贝**
 - Object.assign() **浅拷贝**
 - mobx.toJS(message) **深拷贝**
 
-event.target event.currentTarget
+### event.target event.currentTarget
 
 - event.target 指向引起触发事件的元素; li
 - event.currentTarget ; ul
 - 只有被点击的那个目标元素的 event.target 才会等于 event.currentTarget。
 
-AMD CMD
+### AMD CMD
 
 - AMD: 提前加载，不论是否调用模块，先解析所有模块，require 速度快，有可能浪费资源
 - CMD: 提前加载，在真正需要时才解析该模块
 - common.js 同步，循序执行
 - sea.js 按需加载，性能比 AMD 差
 
-防篡改对象
+### 防篡改对象
 
 一旦把对象定义为防篡改对象，就无法撤销了
 
@@ -86,7 +87,13 @@ Object.isSealed(person); // true
 Object.isFrozen(person); // true
 ```
 
-RAF requestAnimationFrame [code](./imooc/js/requestAnimationFrame.js)
+属性特性
+- writable (可写) 指定是否可以设置属性的值；
+- enumerable (可枚举) 指定是否可以在for/in循环中返回属性的名字；
+- configurable (可配置) 指定是否可以删除属性，以及是否可以修改其特性；
+
+
+### RAF requestAnimationFrame [code](./imooc/js/requestAnimationFrame.js)
 
 - 要想动画流畅，更新频率要 60 帧/s，即 16.67s 更新一次视图；
 - setTimeout 要手动控制频率，而 RAF 浏览器会自动控制；
@@ -94,7 +101,7 @@ RAF requestAnimationFrame [code](./imooc/js/requestAnimationFrame.js)
 
 ---
 
-CSS 经典面试题
+### CSS 经典面试题
 
 1. 右边宽度自适应
 2. 左边根据右边自适应高度
@@ -103,7 +110,7 @@ CSS 经典面试题
 
 ---
 
-JS 面试题
+### JS 面试题
 
 值类型和引用类型的区别？
 
@@ -112,24 +119,40 @@ JS 面试题
 
 var let const 区别
 
-- var 是 ES5 语法，let const 是 ES6 语法；var 有变量提升
-- var let 声明的是变量，可修改；const 声明的是常量，不可修改
 - let const 有块级作用域， var 没有
-- let const 不会在全局声明时（在最顶部的范围）创建 window 对象的属性。(**重要**)
+- let const 声明的全局变量和常量不是全局对象的属性，var声明的全局变量是全局对象的属性。
+- var多次声明同名变量是合法的，let不行
+- var 有作用域提升，let没有，即，在声明前使用会报错
+- var let 声明的是变量，可修改；const 声明的是常量，不可修改
 
-typeof 能够判断哪些类型
+
+```js 
+// var没有块级作用域
+for (var i = 0; i < 3; i++) {
+  console.log(i)
+}
+console.log(i) // 3
+// let有块级作用域
+for (let i = 0; i < 3; i++) {
+  console.log(i)
+}
+console.log(i) // Uncaught ReferenceError: i is not defined
+```
+
+
+#### typeof 能够判断哪些类型
 
 - 识别所有值类型 **string number boolean symbol undefined**
 - 判断是否是引用类型（不可再细分 ） **object** (注意 typeof null === 'object')
 - 识别函数 **function**
 
-何时使用==， 何时使用===？
+#### 何时使用==， 何时使用===？
 
 - 除了 == null 之外，其他一律用 ===
 - undefined == null // true
 - undefined === null // false
 
-列举强制类型转换和隐式类型转换
+#### 列举强制类型转换和隐式类型转换
 
 - 强制： parseInt、parseFloat、toString 等
 - 隐式： if、逻辑运算、 ==、 + 拼接字符串
@@ -146,20 +169,41 @@ falsely 变量 !!a === false
 - !!null === false
 - !!flase === false
 
-数组去重
+#### 数组去重
 
 - `let a = [...new Set(arr)]`
 - `Array.from(new Set(arr))`
 - 传统方法
 
-数组 API
+#### 数组 API
 
-数组的 pop push shift unshift 分别做什么
+- pop() 方法从数组中删除最后一个元素，并返回该元素的值。此方法会更改数组的长度。
+- push(element1、…、elementN) 方法将指定的元素添加到数组的末尾，并返回新的数组长度。
+- shift() 方法从数组中删除第一个元素，并返回该元素的值。此方法更改数组的长度。
+- unshift(element1、…、elementN) 方法将指定元素添加到数组的开头，并返回数组的新长度。
+- splice() 方法通过移除或者替换已存在的元素和/或添加新元素就地改变一个数组的内容。
+splice(start, deleteCount, item1, item2, itemN)
+- slice() 方法返回一个新的数组对象，这一对象是一个由 start 和 end 决定的原数组的浅拷贝（包括 start，不包括 end），其中 start 和 end 代表了数组元素的索引。原始数组不会被改变。
+slice(start, end)
+- reduce() 方法对数组中的每个元素按序执行一个提供的 reducer 函数，每一次运行 reducer 会将先前元素的计算结果作为参数传入，最后将其结果汇总为单个返回值。
+第一次执行回调函数时，不存在“上一次的计算结果”。如果需要回调函数从数组索引为 0 的元素开始执行，则需要传递初始值。否则，数组索引为 0 的元素将被用作初始值，迭代器将从第二个元素开始执行（即从索引为 1 而不是 0 的位置开始）。
 
-- 功能是什么？
-- 返回值是什么？
-- 是否会对原数组造成影响？
+  - reduce(callbackFn)
+  - reduce(callbackFn, initialValue)
+  - callbackFn(callbackFn,currentValue,currentIndex,array)
+  - 如有有initialValue，callbackFn第一参数为initialValue，第二个参数为array[0],第三个参数为0
+  - 如果没有initialValue，callbackFn第一参数为array[0]，第二个参数为array[1],第三个参数为1
+- 数组静态方法
+  - Array.isArray() 静态方法用于确定传递的值是否是一个数组。
+  - Array.of() 静态方法通过可变数量的参数创建一个新的 Array 实例，而不考虑参数的数量或类型。
+  - Array.from() 静态方法从可迭代或类数组对象创建一个新的浅拷贝的数组实例。
+  - Array.fromAsync() 静态方法可以由一个异步可迭代对象、可迭代对象或类数组对象创建一个新的、浅拷贝的 Array 实例。
 
+    Array.fromAsync() 和 Promise.all() 都可以将一个 promise 可迭代对象转换为一个数组的 promise。然而，它们有两个关键区别：
+
+    1.Array.fromAsync() 会依次等待对象中产生的每个值兑现。Promise.all() 会并行等待所有值兑现。
+    2.Array.fromAsync() 惰性迭代可迭代对象，并且不会获取下一个值，直到当前值被兑现。Promise.all() 预先获取所有值并等待它们全部兑现。
+-----
 扩展： 数组有哪些 API，是否是纯函数？[code](./imooc/js/array-splice.js)
 
 - 纯函数：concat map filter **slice-切片**
@@ -172,7 +216,7 @@ falsely 变量 !!a === false
 
 字符串中出现次数最多的字符
 
-手写 trim 保证浏览器兼容性
+### 手写 trim 保证浏览器兼容性
 
 ```javascript
 if (!String.prototypt.trim) {
@@ -185,7 +229,7 @@ if (!String.prototypt.trim) {
 
 ---
 
-map 可以传函数进去吗？为什么会出错？怎么解决？
+### map 可以传函数进去吗？为什么会出错？怎么解决？
 
 ```javascript
 ["2", "3", "4"].map(parseInt)[
@@ -213,33 +257,34 @@ a = 10;
 
 ---
 
-手写倒计时
+### 手写倒计时
 
 for...of for...in [code](./imooc/js/for-of.js)
 
 手写深度比较， lodash.isEqual [code](./imooc/js/isEqual.js)
 
+### 正则表达式
 正则表达式 [30 分种入门](https://deerchao.cn/tutorials/regex/regex.htm#greedyandlazy)
 
-- - 一次或多次
-- - 0 次或多次
-- ? 0 次或 1 次
+- \+ 一次或多次
+- \* 0 次或多次
+- ?  0 次或 1 次
 - | 两项之间的一个
 
 字符串字母开头，后面字母数字下划线，长度 6-30
 `const reg = /^[a-zA-Z]\w{5,29}$/`
 
-如何通过 js 实现继承
+### 如何通过 js 实现继承
 
 - class 继承 （推荐）
 - prototype 继承
 
-如何捕获 js 异常
+### 如何捕获 js 异常
 
 - try...catch
 - window.onerror = function(message, source, lineNum, colNum, error) {...}
 
-什么是 json?
+### 什么是 json?
 
 - json 是一种数据格式，本质是一段字符串
 - json 格式和 js 对象格式结构一致，对 js 语言更友好
@@ -258,25 +303,30 @@ for...of for...in [code](./imooc/js/for-of.js)
 
 将 url 参数解析成对象 [code](./imooc/js/query.js)
 
-手写 flatten 数组，考虑多级 （flatten 拍平）[code](./imooc/js/flat.js)
+### 手写 flatten 数组，考虑多级 （flatten 拍平）[code](./imooc/js/flat.js)
 
-函数声明和函数表达式的区别？
+### 函数声明和函数表达式的区别？
 
 - 函数声明： `function fn() {...}`
 - 函数表达式： `const fn = function () {...}`
 - 函数声明会在代码执行前预加载，而函数表达式不会（类似于变量提升）
 
-new Object() 和 Object.create() 的区别
+### new Object() 和 Object.create() 的区别
 
 - {} 等同于 new Object(), 原型是 Object.prototype
 - Object.create(null) 没有原型
 - Object.create({...}) 可指定原型
+- Object.create()可以防止对象被某个第三方库函数意外修改
+```js
+let o = {x: “don’t change this value”}；
+library.function(Object.create(o)); // 防止意外修改
+```
 
-关于 this 场景题
+### 关于 this 场景题
 [code1](./imooc/js/this.js)
 [code2](./imooc/js/this2.js)
 
-性能优化
+### 性能优化
 
 ```javascript
 // 对DOM查询进行缓存
@@ -295,7 +345,7 @@ for (let i = 0; i < 5; i++) {
 document.body.appendChild(frag)
 ```
 
-作用域 变量
+### 作用域 变量
 
 ```javascript
 // 考察知识点 作用域和变量
@@ -316,7 +366,7 @@ alert(a);
 
 ---
 
-小题
+### 小题
 
 ```javascript
 
@@ -332,6 +382,7 @@ const a = 40 % 7; typeof a
 
 1 + null          // 1
 1 + undefined     // NaN
+0 / 0             // NaN
 
 Number(null)      // 0
 Number(undefined) // NaN
@@ -342,22 +393,20 @@ null instanceof Object;                // false
 
 // ++i i++
 
-// ++ i 是先加后赋值；i ++ 是先赋值后加；++i和i++都是分两步完成的。
+// ++i 是先加后赋值；i++ 是先赋值后加；++i和i++都是分两步完成的。
 
 ```
 
 ---
 
-Set 构造函数
-
+### Set 表示一组值的集合
 - Set 类似于数组，但是成员的值都是唯一的，没用重复的值
 - Set 本身是一个构造函数，用来生成 Set 数据结构
 - 不会添加重复的值
 - 向 Set 加入值时，不会发生类型转换
 - 可接受数组作为参数
 
-实例的属性和方法
-
+#### 实例的属性和方法
 - Set.prototype.constructor
 - Set.prototype.size
 - add(value)
@@ -365,8 +414,7 @@ Set 构造函数
 - has(value)
 - clear()
 
-遍历方法
-
+#### 遍历方法
 - keys()
 - values()
 - entries()
@@ -374,22 +422,21 @@ Set 构造函数
 - map()
 - filter()
 
-很容易实现并集，交集，差集
-
+#### 很容易实现并集，交集，差集
 - 并集 `let union = new Set([...a, ...b])`
 - 交集 `let intersect = new Set([...a].filer(x => b.has(x)))`
 - 差集 `let intersect = new Set([...a].filer(x => !b.has(x)))`
 
-WeakSet 构造函数
+#### WeakSet 弱集合
 
 与 Set 类似，也是不重复的值的集合
 
-区别
+#### 区别
 
 - WeakSet 成员只能是对象，不能是其他类型的值
-- WeakSet 的对象都是弱引用。即垃圾机制不考虑 对该对象的引用
+- WeakSet 的对象都是弱引用。即垃圾机制不考虑对该对象的引用
 
-属性和方法
+#### 属性和方法
 
 - WeakSet.prototype.add(value)
 - WeakSet.prototype.delete(value)
@@ -398,14 +445,13 @@ WeakSet 构造函数
 - 没有 size 属性，没有方法遍历其成员
 - 用处： 存储 DOM 节点，而不用担心这些节点从文档移除时会引发内存泄漏
 
-Map
+### Map 表示键与值的映射
 
 - 类似于对象，也是键值对的集合，但是键的范围不限于字符串
 - 对同一个键赋值两次，后一次的值会覆盖前一次的值
 - 读取一个未知的键，返回 undefined **注意：只有对同一个对象的引用，才视为同一个键**
 
-属性和方法
-
+#### 属性和方法
 - size
 - set(key, value)
 - get(key)
@@ -413,32 +459,31 @@ Map
 - delete(o)
 - clear()
 
-遍历方法
+#### 遍历方法
 
 - keys()
 - values()
 - entries()
 - forEach()
 
-WeakMap
+#### WeakMap 弱映射
 
 WeakMap 与 Map 结构基本类似，唯一的区别是它只接受对象作为键名（null 除外），不接受其他类型的值作为键名，而且键名所指向的对象不计入垃圾回收机制。
 
 专用场合就是，他的键所对应的对象可能会在将来消失，有助于防止内存泄漏。
 
-方法
-
+##### 方法
 - get
 - set
 - has
 - delete
 
-与 Map 区别
+##### 与 Map 区别
 
 - 没有遍历操作，没有 size
 - 无法清空，没有 clear()
 
-Proxy Object.defineProperty 区别
+### Proxy Object.defineProperty 区别
 
 - Object.defineProperty 只能监听到属性的读写
 - Proxy 除读写外，还可以监听到属性的删除，方法的调用等
@@ -459,10 +504,8 @@ Proxy Object.defineProperty 区别
 - apply(target, object, args)：拦截 Proxy 实例作为函数调用的操作，比如 proxy(...args)、proxy.call(object, ...args)、proxy.apply(...)。
 - construct(target, args)：拦截 Proxy 实例作为构造函数调用的操作，比如 new proxy(...args)。
 
-Reflect
-
-Reflect 对象一共有 13 个静态方法。
-
+### Reflect
+Reflect 代理对象一共有 13 个静态方法。
 - Reflect.apply(target, thisArg, args)
 - Reflect.construct(target, args)
 - Reflect.get(target, name, receiver)
@@ -477,7 +520,24 @@ Reflect 对象一共有 13 个静态方法。
 - Reflect.getPrototypeOf(target)
 - Reflect.setPrototypeOf(target, prototype)
 
-解析 get 参数
+### 脚本运行时机：async 和 defer
+```html
+<script defer src="deferred.js"></script>
+<script async src="async.js"></script>
+```
+async 和 defer都会告诉浏览器可以在下载脚本的同时继续解析和渲染文档。
+
+defer属性会让浏览器把脚本的执行推迟到文档完全加载和解析之后，此时已经可以操作文档了。
+
+async属性会让浏览器尽早运行脚本，但在脚本下载期间同样不会阻塞文档解析。
+当这两个属性同时存在时，async起作用。
+
+### DOMContentLoaded load 事件，js程序经常使用这两个事件作为触发器或启动信号
+- DOMContentLoaded 在HTML文档被完全加载和解析后触发；
+- load 事件在所有文档的外部资源（如图片）都完全加载后触发；
+
+
+### 解析 get 参数
 
 ```js
 const q = {};
@@ -509,3 +569,4 @@ https://mp.weixin.qq.com/s/fDlyrRTv6zp-PQ1iRkTpBQ
 
 ### 数据结构
 
+111
