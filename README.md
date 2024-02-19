@@ -505,6 +505,7 @@ https://mp.weixin.qq.com/s/fDlyrRTv6zp-PQ1iRkTpBQ
 - [深入理解 js 作用域](https://mp.weixin.qq.com/s/fYZciVqatoJAKlm6tKHSyw)
 - [一文理解 this、call、apply、bind](https://mp.weixin.qq.com/s/3sm7wugUZ0GUavQsbQnEeg)
 
-算法
+### 算法
 
-数据结构
+### 数据结构
+
