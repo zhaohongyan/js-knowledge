@@ -399,90 +399,6 @@ null instanceof Object;                // false
 
 ---
 
-### Set 表示一组值的集合
-- Set 类似于数组，但是成员的值都是唯一的，没用重复的值
-- Set 本身是一个构造函数，用来生成 Set 数据结构
-- 不会添加重复的值
-- 向 Set 加入值时，不会发生类型转换
-- 可接受数组作为参数
-
-#### 实例的属性和方法
-- Set.prototype.constructor
-- Set.prototype.size
-- add(value)
-- delete(value)
-- has(value)
-- clear()
-
-#### 遍历方法
-- keys()
-- values()
-- entries()
-- forEach()
-- map()
-- filter()
-
-#### 很容易实现并集，交集，差集
-- 并集 `let union = new Set([...a, ...b])`
-- 交集 `let intersect = new Set([...a].filer(x => b.has(x)))`
-- 差集 `let intersect = new Set([...a].filer(x => !b.has(x)))`
-
-#### WeakSet 弱集合
-
-与 Set 类似，也是不重复的值的集合
-
-#### 区别
-
-- WeakSet 成员只能是对象，不能是其他类型的值
-- WeakSet 的对象都是弱引用。即垃圾机制不考虑对该对象的引用
-
-#### 属性和方法
-
-- WeakSet.prototype.add(value)
-- WeakSet.prototype.delete(value)
-- WeakSet.prototype.has(value)
-
-- 没有 size 属性，没有方法遍历其成员
-- 用处： 存储 DOM 节点，而不用担心这些节点从文档移除时会引发内存泄漏
-
-### Map 表示键与值的映射
-
-- 类似于对象，也是键值对的集合，但是键的范围不限于字符串
-- 对同一个键赋值两次，后一次的值会覆盖前一次的值
-- 读取一个未知的键，返回 undefined **注意：只有对同一个对象的引用，才视为同一个键**
-
-#### 属性和方法
-- size
-- set(key, value)
-- get(key)
-- has(o)
-- delete(o)
-- clear()
-
-#### 遍历方法
-
-- keys()
-- values()
-- entries()
-- forEach()
-
-#### WeakMap 弱映射
-
-WeakMap 与 Map 结构基本类似，唯一的区别是它只接受对象作为键名（null 除外），不接受其他类型的值作为键名，而且键名所指向的对象不计入垃圾回收机制。
-
-专用场合就是，他的键所对应的对象可能会在将来消失，有助于防止内存泄漏。
-
-##### 方法
-- get
-- set
-- has
-- delete
-
-##### 与 Map 区别
-
-- 没有遍历操作，没有 size
-- 无法清空，没有 clear()
-
 ### Proxy Object.defineProperty 区别
 
 - Object.defineProperty 只能监听到属性的读写
@@ -569,4 +485,4 @@ https://mp.weixin.qq.com/s/fDlyrRTv6zp-PQ1iRkTpBQ
 
 ### 数据结构
 
-222
+
