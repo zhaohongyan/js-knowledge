@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CMD</title>
+		<!-- 引入SeaJS库 -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/seajs/3.0.1/sea.js"></script>
+	</head>
+	<body>
+		<script>
+			// 配置模块路径，这里假设模块都在当前目录下
+			seajs.config({
+				base: "./",
+			});
+			// 加载入口模块main.js
+			seajs.use("main.js");
+		</script>
+	</body>
+</html>
